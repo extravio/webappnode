@@ -1,0 +1,9 @@
+version: "3"
+services:
+  node:
+    container_name: webappnode
+    image: node10
+    ports:
+      - "8888:8888"
+    volumes:
+      - /home/mikael/dev/www/node/webappnode:/usr/src/app
