@@ -10,6 +10,4 @@ docker exec -it webappnode /bin/sh
 # Getting started
 
 ## debug 
-DEBUG=* node app.js
-
-DEBUG=app node app.js
+DEBUG=* node app.js, DEBUG=app node app.js
