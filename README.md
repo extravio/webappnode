@@ -11,3 +11,10 @@ docker exec -it webappnode /bin/sh
 
 ## debug 
 DEBUG=* node app.js, DEBUG=app node app.js
+
+## eslint
+Install eslint and initialize it on command line to install the required dependencies:
+
+`> npm install eslint@^4.19.1 --save-dev`
+
+`> ./node_modules/.bin/eslint --init`
