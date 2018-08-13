@@ -1,11 +1,11 @@
-var express = require('express');
-var chalk = require('chalk');
-var debug = require('debug')('app');
-var morgan = require('morgan');
-var path = require('path');
+const express = require('express');
+const chalk = require('chalk');
+const debug = require('debug')('app');
+const morgan = require('morgan');
+const path = require('path');
 
-var app = express();
-var port = 8888;
+const app = express();
+const port = process.env.PORT || 8888;
 
 app.use(morgan('tiny'));
 
@@ -15,10 +15,10 @@ app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/dist'))
 app.use('/js', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/js')));
 app.use('/js', express.static(path.join(__dirname, '/node_modules/popper.js/dist')));
 
-app.get('/', function(req, res){
-    res.sendFile(path.join(__dirname, '/views/index.html'));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '/views/index.html'));
 });
 
-app.listen(port, function(){
-    debug(`listening on port ${chalk.green(port)}`);
-})
+app.listen(port, () => {
+  debug(`listening on port ${chalk.green(port)}`);
+});
