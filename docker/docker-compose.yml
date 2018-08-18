@@ -7,3 +7,32 @@ services:
       - "8888:8888"
     volumes:
       - /home/mikael/dev/www/node/webappnode:/usr/src/app
+    networks:
+      - node-dev-network
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+    networks:
+      - node-dev-network
+    ports:
+      - "27017:27017"
+    volumes:
+      - /home/mikael/dev/mongo:/data/db
+    networks:
+      - node-dev-network
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: root
+    networks:
+      - node-dev-network
+networks:
+  node-dev-network:
+    driver: bridge
