@@ -35,7 +35,7 @@ const nav = [
 
 const bookRouter = require('./src/routes/bookRoutes')(nav);
 const adminRouter = require('./src/routes/adminRoutes')();
-const authRouter = require('./src/routes/authRoutes')();
+const authRouter = require('./src/routes/authRoutes')(nav);
 
 app.use('/books', bookRouter);
 app.use('/admin', adminRouter);
